@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "../Components/Home";
+import UserData from "./UserData";
+import About from "./About";
+import Services from "./Services";
 class NavBar extends Component {
   state = {};
   render() {
@@ -21,26 +24,23 @@ class NavBar extends Component {
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
-                    About
+                  <Link to="/about">About</Link>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
-                    Services
+                    <Link to="/services">Services</Link>
                   </a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    Contact
-                  </a>
-                </li>
+                
               </ul>
             </div>
           </nav>
           <Switch>
-            <Route path="/home">
-              <Home />
-            </Route>
+          <Route exact path="/" component={UserData}/>
+          <Route exact path="/home" component={Home}/>
+          <Route exact path="/about" component={About}/>
+           <Route exact path="/services" component={Services}/>
           </Switch>
         </Router>
       </div>
